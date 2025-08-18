@@ -1,0 +1,335 @@
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git init
+Reinitialized existing Git repository in C:/Users/ciula/Desktop/git/.git/
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git branch
+  dalszarozbudowa
+  dalszarozbudowa2
+  main
+* piosenka
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka/refren-2.txt
+        modified:   piosenka/refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git add piosenka/refren-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git commit -m "usunieta pierwa linia piosenka/refren-2.txt"
+[piosenka 2005e37] usunieta pierwa linia piosenka/refren-2.txt
+ 1 file changed, 1 deletion(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git revert
+usage: git revert [--[no-]edit] [-n] [-m <parent-number>] [-s] [-S[<keyid>]] <commit>...
+   or: git revert (--continue | --skip | --abort | --quit)
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    --skip                skip current commit and continue
+    --[no-]cleanup <mode> how to strip spaces and #comments from message
+    -n, --no-commit       don't automatically commit
+    --commit              opposite of --no-commit
+    -e, --[no-]edit       edit the commit message
+    -s, --[no-]signoff    add a Signed-off-by trailer
+    -m, --[no-]mainline <parent-number>
+                          select mainline parent
+    --[no-]rerere-autoupdate
+                          update the index with reused conflict resolution if possible
+    --[no-]strategy <strategy>
+                          merge strategy
+    -X, --[no-]strategy-option <option>
+                          option for merge strategy
+    -S, --[no-]gpg-sign[=<key-id>]
+                          GPG sign commit
+    --[no-]reference      use the 'reference' format to refer to commits
+
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git revert piosenka/refren-2.txt
+fatal: bad revision 'piosenka/refren-2.txt'
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git log
+commit 2005e375f31e1d6f616759e843bc19023b6a585d (HEAD -> piosenka)
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:35:58 2025 +0200
+
+    usunieta pierwa linia piosenka/refren-2.txt
+
+commit c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:17:36 2025 +0200
+
+    usunieta 2 zwrotka jest w pliku zwrotka-2.txt
+
+commit 956fefd281f66e714dd450e66d4f035392230132
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:08:52 2025 +0200
+
+    zmiana nazwy pliku zwrotka nr7 na refren.txt
+
+commit 7a80354bc07832859cbbdca2dba9d41babbb944b
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 19:55:34 2025 +0200
+
+    zmiana nazwy pliku
+
+commit 446d0a3a5c11e3544d6cc794d3cfff20c492b0ab
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 19:54:32 2025 +0200
+
+    zmiana nazwy pliku zwrotka-8 na refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git revert c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4
+[piosenka 36f4386] Revert "usunieta 2 zwrotka jest w pliku zwrotka-2.txt"
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git atatus
+git: 'atatus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka/refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka/refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git add piosenka/refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git commit -m"usuniecie pierwszej lini piosenka/refren.txt"
+[piosenka b7673e5] usuniecie pierwszej lini piosenka/refren.txt
+ 1 file changed, 2 insertions(+)
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka/piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git add piosenka/piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git commit -m"usuniecie drugiej zwrotki piosenka/piosenka.txt
+> "
+[piosenka 65fd2d5] usuniecie drugiej zwrotki piosenka/piosenka.txt
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git status
+On branch piosenka
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka/piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git add piosenka/piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git commit -m"dodanie zwrotka-2.txt do pliku piosenka.txt"
+[piosenka 8172b8e] dodanie zwrotka-2.txt do pliku piosenka.txt
+ 1 file changed, 1 deletion(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git log -p"piosenka"
+fatal: unrecognized argument: -ppiosenka
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git log -p"piosenka.txt"
+fatal: unrecognized argument: -ppiosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git log -p
+commit 8172b8e7bf1cecda5471a9fc1a6f7c3d84dbf32e (HEAD -> piosenka)
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 21:03:19 2025 +0200
+
+    dodanie zwrotka-2.txt do pliku piosenka.txt
+
+diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
+index 2318474..64bb822 100644
+--- a/piosenka/piosenka.txt
++++ b/piosenka/piosenka.txt
+@@ -2,7 +2,6 @@ They bring him to the shore
+ His ship is ready made
+ He will not see them anymore
+ Here he cannot stay
+-
+ zwrotka-2.txt
+
+ Our king has left our ranks
+
+commit 65fd2d54cdeec919255ad2f94528c0e7709c3675
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 21:00:00 2025 +0200
+
+    usuniecie drugiej zwrotki piosenka/piosenka.txt
+
+diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
+index 03bac75..2318474 100644
+--- a/piosenka/piosenka.txt
++++ b/piosenka/piosenka.txt
+:...skipping...
+commit 8172b8e7bf1cecda5471a9fc1a6f7c3d84dbf32e (HEAD -> piosenka)
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 21:03:19 2025 +0200
+
+    dodanie zwrotka-2.txt do pliku piosenka.txt
+
+diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
+index 2318474..64bb822 100644
+--- a/piosenka/piosenka.txt
++++ b/piosenka/piosenka.txt
+@@ -2,7 +2,6 @@ They bring him to the shore
+ His ship is ready made
+ He will not see them anymore
+ Here he cannot stay
+-
+ zwrotka-2.txt
+
+ Our king has left our ranks
+
+commit 65fd2d54cdeec919255ad2f94528c0e7709c3675
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 21:00:00 2025 +0200
+
+    usuniecie drugiej zwrotki piosenka/piosenka.txt
+
+diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
+index 03bac75..2318474 100644
+--- a/piosenka/piosenka.txt
++++ b/piosenka/piosenka.txt
+@@ -3,10 +3,7 @@ His ship is ready made
+ He will not see them anymore
+ Here he cannot stay
+
+-The brotherhood is gathered
+-Their faces hard as stone
+-They have come to take farewell
+-In silence they mourn
++zwrotka-2.txt
+
+ Our king has left our ranks
+ A wise and noble man
+@@ -23,10 +20,9 @@ As day turns into night
+ One thousand burning arrows
+ Fill the starlit sky
+
+-Two ravens on the longship
+-They spread their pitch-black wings
+-And lift up to the burning sky
+-A send-off for a king
++
+
+ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+$ git log
+commit 8172b8e7bf1cecda5471a9fc1a6f7c3d84dbf32e (HEAD -> piosenka)
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 21:03:19 2025 +0200
+
+    dodanie zwrotka-2.txt do pliku piosenka.txt
+
+commit 65fd2d54cdeec919255ad2f94528c0e7709c3675
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 21:00:00 2025 +0200
+
+    usuniecie drugiej zwrotki piosenka/piosenka.txt
+
+commit b7673e52486f66cd938290029f88b2584c20bdfe
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:45:31 2025 +0200
+
+    usuniecie pierwszej lini piosenka/refren.txt
+
+commit 36f43866238f912625333ae1732cb39c4ef092e8
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:41:33 2025 +0200
+
+    Revert "usunieta 2 zwrotka jest w pliku zwrotka-2.txt"
+
+    This reverts commit c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4.
+
+commit 2005e375f31e1d6f616759e843bc19023b6a585d
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:35:58 2025 +0200
+
+    usunieta pierwa linia piosenka/refren-2.txt
+
+commit c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:17:36 2025 +0200
+
+    usunieta 2 zwrotka jest w pliku zwrotka-2.txt
+
+commit 956fefd281f66e714dd450e66d4f035392230132
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 20:08:52 2025 +0200
+
+    zmiana nazwy pliku zwrotka nr7 na refren.txt
+
+commit 7a80354bc07832859cbbdca2dba9d41babbb944b
+Author: Michał Noculak <you@example.com>
+Date:   Mon Aug 18 19:55:34 2025 +0200
+
+    zmiana nazwy pliku
+
+:
+:
