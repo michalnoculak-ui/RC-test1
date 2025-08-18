@@ -3,10 +3,7 @@ His ship is ready made
 He will not see them anymore
 Here he cannot stay
 
-The brotherhood is gathered
-Their faces hard as stone
-They have come to take farewell
-In silence they mourn
+zwrotka-2.txt
 
 Our king has left our ranks
 A wise and noble man
@@ -23,10 +20,9 @@ As day turns into night
 One thousand burning arrows
 Fill the starlit sky
 
-Two ravens on the longship
-They spread their pitch-black wings
-And lift up to the burning sky
-A send-off for a king
+
+Jest w pliku zwrotka-2.txt
+
 
 Into flames the longship burst into flames!
 Black smoke is rising high
