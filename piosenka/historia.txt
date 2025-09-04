@@ -1,335 +1,865 @@
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git init
-Reinitialized existing Git repository in C:/Users/ciula/Desktop/git/.git/
+Reinitialized existing Git repository in C:/Users/ciula/Desktop/git/piosenka/.git/
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git branch
-  dalszarozbudowa
-  dalszarozbudowa2
-  main
-* piosenka
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-nothing to commit, working tree clean
+On branch master
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        piosenka.txt
+        refren-2.txt
+        refren.txt
+        zwrotka-1.txt
+        zwrotka-2.txt
+        zwrotka-3.txt
+        zwrotka-4.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git rm refren.txt
+fatal: pathspec 'refren.txt' did not match any files
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git rm refren.txt
+error: the following file has changes staged in the index:
+    refren.txt
+(use --cached to keep the file, or -f to force removal)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git rm -f refren.txt
+rm 'refren.txt'
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   piosenka/refren-2.txt
-        modified:   piosenka/refren.txt
+On branch master
 
-no changes added to commit (use "git add" and/or "git commit -a")
+No commits yet
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git add piosenka/refren-2.txt
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        piosenka.txt
+        refren-2.txt
+        zwrotka-1.txt
+        zwrotka-2.txt
+        zwrotka-3.txt
+        zwrotka-4.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git commit -m "usunieta pierwa linia piosenka/refren-2.txt"
-[piosenka 2005e37] usunieta pierwa linia piosenka/refren-2.txt
- 1 file changed, 1 deletion(-)
+nothing added to commit but untracked files present (use "git add" to track)
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git revert
-usage: git revert [--[no-]edit] [-n] [-m <parent-number>] [-s] [-S[<keyid>]] <commit>...
-   or: git revert (--continue | --skip | --abort | --quit)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
 
-    --quit                end revert or cherry-pick sequence
-    --continue            resume revert or cherry-pick sequence
-    --abort               cancel revert or cherry-pick sequence
-    --skip                skip current commit and continue
-    --[no-]cleanup <mode> how to strip spaces and #comments from message
-    -n, --no-commit       don't automatically commit
-    --commit              opposite of --no-commit
-    -e, --[no-]edit       edit the commit message
-    -s, --[no-]signoff    add a Signed-off-by trailer
-    -m, --[no-]mainline <parent-number>
-                          select mainline parent
-    --[no-]rerere-autoupdate
-                          update the index with reused conflict resolution if possible
-    --[no-]strategy <strategy>
-                          merge strategy
-    -X, --[no-]strategy-option <option>
-                          option for merge strategy
-    -S, --[no-]gpg-sign[=<key-id>]
-                          GPG sign commit
-    --[no-]reference      use the 'reference' format to refer to commits
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"poprawiam zadanie piosenka.txt"
+[master (root-commit) 418300f] poprawiam zadanie piosenka.txt
+ 1 file changed, 43 insertions(+)
+ create mode 100644 piosenka.txt
 
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git revert piosenka/refren-2.txt
-fatal: bad revision 'piosenka/refren-2.txt'
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git log
-commit 2005e375f31e1d6f616759e843bc19023b6a585d (HEAD -> piosenka)
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:35:58 2025 +0200
-
-    usunieta pierwa linia piosenka/refren-2.txt
-
-commit c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:17:36 2025 +0200
-
-    usunieta 2 zwrotka jest w pliku zwrotka-2.txt
-
-commit 956fefd281f66e714dd450e66d4f035392230132
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:08:52 2025 +0200
-
-    zmiana nazwy pliku zwrotka nr7 na refren.txt
-
-commit 7a80354bc07832859cbbdca2dba9d41babbb944b
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 19:55:34 2025 +0200
-
-    zmiana nazwy pliku
-
-commit 446d0a3a5c11e3544d6cc794d3cfff20c492b0ab
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 19:54:32 2025 +0200
-
-    zmiana nazwy pliku zwrotka-8 na refren.txt
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git revert c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4
-[piosenka 36f4386] Revert "usunieta 2 zwrotka jest w pliku zwrotka-2.txt"
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git atatus
-git: 'atatus' is not a git command. See 'git --help'.
-
-The most similar command is
-        status
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   piosenka/refren.txt
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+        zwrotka-1.txt
+        zwrotka-2.txt
+        zwrotka-3.txt
+        zwrotka-4.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
 
-no changes added to commit (use "git add" and/or "git commit -a")
+nothing added to commit but untracked files present (use "git add" to track)
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka-1.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-1.txt"
+[master 1b0240a] dodano plik zwrotka-1.txt
+ 1 file changed, 4 insertions(+)
+ create mode 100644 zwrotka-1.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   piosenka/refren.txt
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+        zwrotka-2.txt
+        zwrotka-3.txt
+        zwrotka-4.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
 
-no changes added to commit (use "git add" and/or "git commit -a")
+nothing added to commit but untracked files present (use "git add" to track)
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git add piosenka/refren.txt
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Disable this message with "git config set advice.addEmptyPathspec false"
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git commit -m"usuniecie pierwszej lini piosenka/refren.txt"
-[piosenka b7673e5] usuniecie pierwszej lini piosenka/refren.txt
- 1 file changed, 2 insertions(+)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Disable this message with "git config set advice.addEmptyPathspec false"
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-2.txt"
+[master 4aef02d] dodano plik zwrotka-2.txt
+ 1 file changed, 4 insertions(+)
+ create mode 100644 zwrotka-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-nothing to commit, working tree clean
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+        zwrotka-3.txt
+        zwrotka-4.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka-3.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-3.txt"
+[master 0001fc2] dodano plik zwrotka-3.txt
+ 1 file changed, 4 insertions(+)
+ create mode 100644 zwrotka-3.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-nothing to commit, working tree clean
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+        zwrotka-4.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka-4.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-4.txt"
+[master cc8912b] dodano plik zwrotka-4.txt
+ 1 file changed, 5 insertions(+)
+ create mode 100644 zwrotka-4.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   piosenka/piosenka.txt
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+        zwrotka-5.txt
+        zwrotka-6.txt
 
-no changes added to commit (use "git add" and/or "git commit -a")
+nothing added to commit but untracked files present (use "git add" to track)
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git add piosenka/piosenka.txt
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka-5.txt
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git commit -m"usuniecie drugiej zwrotki piosenka/piosenka.txt
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-5.txt
 > "
-[piosenka 65fd2d5] usuniecie drugiej zwrotki piosenka/piosenka.txt
- 1 file changed, 4 insertions(+), 8 deletions(-)
+[master 2381028] dodano plik zwrotka-5.txt
+ 1 file changed, 4 insertions(+)
+ create mode 100644 zwrotka-5.txt
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+        zwrotka-6.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka-6.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-6.txt"
+[master 8a4480c] dodano plik zwrotka-6.txt
+ 1 file changed, 4 insertions(+)
+ create mode 100644 zwrotka-6.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+        refren-2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add commit -m"dodano plik refren-2.txt"
+error: unknown switch `m'
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --[no-]dry-run    dry run
+    -v, --[no-]verbose    be verbose
+
+    -i, --[no-]interactive
+                          interactive picking
+    -p, --[no-]patch      select hunks interactively
+    -e, --[no-]edit       edit current diff and apply
+    -f, --[no-]force      allow adding otherwise ignored files
+    -u, --[no-]update     update tracked files
+    --[no-]renormalize    renormalize EOL of tracked files (implies -u)
+    -N, --[no-]intent-to-add
+                          record only the fact that the path will be added later
+    -A, --[no-]all        add changes from all tracked and untracked files
+    --[no-]ignore-removal ignore paths removed in the working tree (same as --no-all)
+    --[no-]refresh        don't add, only refresh the index
+    --[no-]ignore-errors  just skip files which cannot be added because of errors
+    --[no-]ignore-missing check if - even missing - files are ignored in dry run
+    --[no-]sparse         allow updating entries outside of the sparse-checkout cone
+    --[no-]chmod (+|-)x   override the executable bit of the listed files
+    --[no-]pathspec-from-file <file>
+                          read pathspec from file
+    --[no-]pathspec-file-nul
+                          with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add commit - m"dodano plik refren-2.txt"
+fatal: pathspec 'commit' did not match any files
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik refren-2.txt"
+[master 21c4ec9] dodano plik refren-2.txt
+ 1 file changed, 2 insertions(+)
+ create mode 100644 refren-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        historia.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add gistoria.txt
+fatal: pathspec 'gistoria.txt' did not match any files
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add historia.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik historia.txt"
+[master 9c56c75] dodano plik historia.txt
+ 1 file changed, 335 insertions(+)
+ create mode 100644 historia.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git rm -f historia.txt
+rm 'historia.txt'
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"usunieto plik z komenda git rm -f(force removal) historia.txt"
+[master 6fcc4fc] usunieto plik z komenda git rm -f(force removal) historia.txt
+ 1 file changed, 335 deletions(-)
+ delete mode 100644 historia.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
 nothing to commit, working tree clean
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ touch zwrotka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git status
-On branch piosenka
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        zwrotka.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add zwrotka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik z bledna nazwa zwrotka.txt"
+[master 9758592] dodano plik z bledna nazwa zwrotka.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 zwrotka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git re zwrotka.txt>refren.txt
+git: 're' is not a git command. See 'git --help'.
+
+The most similar commands are
+        rebase
+        reset
+        restore
+        grep
+        refs
+        rm
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git mv zwrotka.txt>refren.txt
+usage: git mv [-v] [-f] [-n] [-k] <source> <destination>
+   or: git mv [-v] [-f] [-n] [-k] <source>... <destination-directory>
+
+    -v, --[no-]verbose    be verbose
+    -n, --[no-]dry-run    dry run
+    -f, --[no-]force      force move/rename even if target exists
+    -k                    skip move/rename errors
+    --[no-]sparse         allow updating entries outside of the sparse-checkout cone
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git mv zwrotka.txt refren.txt
+fatal: destination exists, source=zwrotka.txt, destination=refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git mv zwrotka.txt > refren-2.txt
+usage: git mv [-v] [-f] [-n] [-k] <source> <destination>
+   or: git mv [-v] [-f] [-n] [-k] <source>... <destination-directory>
+
+    -v, --[no-]verbose    be verbose
+    -n, --[no-]dry-run    dry run
+    -f, --[no-]force      force move/rename even if target exists
+    -k                    skip move/rename errors
+    --[no-]sparse         allow updating entries outside of the sparse-checkout cone
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git mv zwrotka.txt refren-2.txt
+fatal: destination exists, source=zwrotka.txt, destination=refren-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-        modified:   piosenka/piosenka.txt
+        modified:   refren-2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        refren.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git add piosenka/piosenka.txt
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren.txt
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git commit -m"dodanie zwrotka-2.txt do pliku piosenka.txt"
-[piosenka 8172b8e] dodanie zwrotka-2.txt do pliku piosenka.txt
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit "dodano plik refren.txt
+> "
+error: pathspec 'dodano plik refren.txt
+' did not match any file(s) known to git
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik refren.txt"
+[master cc6af62] dodano plik refren.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   refren-2.txt
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"zmiana na pliku refren-2.txt"
+[master e8a9ee9] zmiana na pliku refren-2.txt
+ 1 file changed, 2 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commi -m"usunieto druga zwrotka w pliku piosenka.txt"
+git: 'commi' is not a git command. See 'git --help'.
+
+The most similar commands are
+        commit
+        column
+        config
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"usunieto druga zwrotka w pliku piosenka.txt"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   piosenka.txt
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"usunieta druga zwrotka w pliku piosenka.txt"
+[master 3648460] usunieta druga zwrotka w pliku piosenka.txt
+ 1 file changed, 5 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano wpis zamiast druga zwrotka w pliku piosenka.txt"
+[master a3a6f3b] dodano wpis zamiast druga zwrotka w pliku piosenka.txt
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   refren.txt
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano tekst refrenu do pliku refren.txt"
+[master 17f2a6d] dodano tekst refrenu do pliku refren.txt
+ 1 file changed, 3 insertions(+)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"usuniecie pierwszej lini zwrotki"
+[master d41b632] usuniecie pierwszej lini zwrotki
  1 file changed, 1 deletion(-)
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git log -p"piosenka"
-fatal: unrecognized argument: -ppiosenka
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ gti log
+bash: gti: command not found
 
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git log -p"piosenka.txt"
-fatal: unrecognized argument: -ppiosenka.txt
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
-$ git log -p
-commit 8172b8e7bf1cecda5471a9fc1a6f7c3d84dbf32e (HEAD -> piosenka)
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 21:03:19 2025 +0200
-
-    dodanie zwrotka-2.txt do pliku piosenka.txt
-
-diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
-index 2318474..64bb822 100644
---- a/piosenka/piosenka.txt
-+++ b/piosenka/piosenka.txt
-@@ -2,7 +2,6 @@ They bring him to the shore
- His ship is ready made
- He will not see them anymore
- Here he cannot stay
--
- zwrotka-2.txt
-
- Our king has left our ranks
-
-commit 65fd2d54cdeec919255ad2f94528c0e7709c3675
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 21:00:00 2025 +0200
-
-    usuniecie drugiej zwrotki piosenka/piosenka.txt
-
-diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
-index 03bac75..2318474 100644
---- a/piosenka/piosenka.txt
-+++ b/piosenka/piosenka.txt
-:...skipping...
-commit 8172b8e7bf1cecda5471a9fc1a6f7c3d84dbf32e (HEAD -> piosenka)
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 21:03:19 2025 +0200
-
-    dodanie zwrotka-2.txt do pliku piosenka.txt
-
-diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
-index 2318474..64bb822 100644
---- a/piosenka/piosenka.txt
-+++ b/piosenka/piosenka.txt
-@@ -2,7 +2,6 @@ They bring him to the shore
- His ship is ready made
- He will not see them anymore
- Here he cannot stay
--
- zwrotka-2.txt
-
- Our king has left our ranks
-
-commit 65fd2d54cdeec919255ad2f94528c0e7709c3675
-Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 21:00:00 2025 +0200
-
-    usuniecie drugiej zwrotki piosenka/piosenka.txt
-
-diff --git a/piosenka/piosenka.txt b/piosenka/piosenka.txt
-index 03bac75..2318474 100644
---- a/piosenka/piosenka.txt
-+++ b/piosenka/piosenka.txt
-@@ -3,10 +3,7 @@ His ship is ready made
- He will not see them anymore
- Here he cannot stay
-
--The brotherhood is gathered
--Their faces hard as stone
--They have come to take farewell
--In silence they mourn
-+zwrotka-2.txt
-
- Our king has left our ranks
- A wise and noble man
-@@ -23,10 +20,9 @@ As day turns into night
- One thousand burning arrows
- Fill the starlit sky
-
--Two ravens on the longship
--They spread their pitch-black wings
--And lift up to the burning sky
--A send-off for a king
-+
-
-ciula@ciulak MINGW64 ~/Desktop/git (piosenka)
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
 $ git log
-commit 8172b8e7bf1cecda5471a9fc1a6f7c3d84dbf32e (HEAD -> piosenka)
+commit d41b63281ab6c5647e22d72b824c5b044db00330 (HEAD -> master)
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 21:03:19 2025 +0200
+Date:   Tue Aug 19 18:03:51 2025 +0200
 
-    dodanie zwrotka-2.txt do pliku piosenka.txt
+    usuniecie pierwszej lini zwrotki
 
-commit 65fd2d54cdeec919255ad2f94528c0e7709c3675
+commit 17f2a6dbc0b0e49a01fc554532b6473ab2cc76a1
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 21:00:00 2025 +0200
+Date:   Tue Aug 19 18:01:50 2025 +0200
 
-    usuniecie drugiej zwrotki piosenka/piosenka.txt
+    dodano tekst refrenu do pliku refren.txt
 
-commit b7673e52486f66cd938290029f88b2584c20bdfe
+commit a3a6f3bc82291f7ff667b084aeae91e5a0a6f8ca
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:45:31 2025 +0200
+Date:   Tue Aug 19 17:58:23 2025 +0200
 
-    usuniecie pierwszej lini piosenka/refren.txt
+    dodano wpis zamiast druga zwrotka w pliku piosenka.txt
 
-commit 36f43866238f912625333ae1732cb39c4ef092e8
+commit 364846007da1b5fd3f390cdea5447319a41484ad
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:41:33 2025 +0200
+Date:   Tue Aug 19 17:54:53 2025 +0200
 
-    Revert "usunieta 2 zwrotka jest w pliku zwrotka-2.txt"
+    usunieta druga zwrotka w pliku piosenka.txt
 
-    This reverts commit c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4.
-
-commit 2005e375f31e1d6f616759e843bc19023b6a585d
+commit e8a9ee9d8289d5d1db6e0e89a78d3ad3eeddbb2d
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:35:58 2025 +0200
+Date:   Tue Aug 19 17:50:27 2025 +0200
 
-    usunieta pierwa linia piosenka/refren-2.txt
+    zmiana na pliku refren-2.txt
 
-commit c11087bcbde7524cfa59a0d2d6f1f6d6b927fde4
+commit cc6af627a4a0effd1688f48c06eaed96fd4e2885
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:17:36 2025 +0200
+Date:   Tue Aug 19 17:49:15 2025 +0200
 
-    usunieta 2 zwrotka jest w pliku zwrotka-2.txt
 
-commit 956fefd281f66e714dd450e66d4f035392230132
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git revert d41b63281ab6c5647e22d72b824c5b044db00330
+[master 6cb9c90] Revert "usuniecie pierwszej lini zwrotki"
+ 1 file changed, 1 insertion(+)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   refren-2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren-2.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano tekst refrenu do pliku refren-2.txt"
+[master b7dad5b] dodano tekst refrenu do pliku refren-2.txt
+ 1 file changed, 4 insertions(+)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"zmieniono slowo into na get w refren 1 i 2 w pliku piosenka.txt"
+[master ac0abe5] zmieniono slowo into na get w refren 1 i 2 w pliku piosenka.txt
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dokonano zmian w pliku pioenka.txt"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dokonano zmian w pliku pioenka.txt"
+[master 0a486e9] dokonano zmian w pliku pioenka.txt
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git rm -f zwrotka.txt
+rm 'zwrotka.txt'
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    zwrotka.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"dodano plik zwrotka-6"
+[master 2c0791e] dodano plik zwrotka-6
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+ delete mode 100644 zwrotka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git merge
+fatal: No remote for the current branch.
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"usunieto plik z refren.txt
+> "
+[master da412e4] usunieto plik z refren.txt
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   piosenka.txt
+        modified:   refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add piosenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"porawa bledu piosenka.txt"
+[master 7d9b03b] porawa bledu piosenka.txt
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   refren.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git add refren.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git commit -m"usunieto slowa into i flames x 2 w pliku reffren.txt"
+[master 91f7e13] usunieto slowa into i flames x 2 w pliku reffren.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git log
+commit 91f7e134ecd9a8b9d29a718fa67213427fba6c8e (HEAD -> master)
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 20:08:52 2025 +0200
+Date:   Tue Aug 19 18:48:42 2025 +0200
 
-    zmiana nazwy pliku zwrotka nr7 na refren.txt
+    usunieto slowa into i flames x 2 w pliku reffren.txt
 
-commit 7a80354bc07832859cbbdca2dba9d41babbb944b
+commit 7d9b03b3be8cd3f2cb6ff42474b29dbb303fd484
 Author: Michał Noculak <you@example.com>
-Date:   Mon Aug 18 19:55:34 2025 +0200
+Date:   Tue Aug 19 18:46:43 2025 +0200
 
-    zmiana nazwy pliku
+    porawa bledu piosenka.txt
 
+commit da412e446913d494bf22554ebe04d78cad30a808
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:45:53 2025 +0200
+
+    usunieto plik z refren.txt
+
+commit 2c0791ebcb586ffe108367deb728453161de7b79
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:28:03 2025 +0200
+
+    dodano plik zwrotka-6
+
+commit 0a486e98a1f13de47a2ca93e02b393cf6dd8dca5
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:23:57 2025 +0200
+
+    dokonano zmian w pliku pioenka.txt
+
+ciula@ciulak MINGW64 ~/Desktop/git/piosenka (master)
+$ git log -p piosenka.txt
+commit 7d9b03b3be8cd3f2cb6ff42474b29dbb303fd484
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:46:43 2025 +0200
+
+    porawa bledu piosenka.txt
+
+diff --git a/piosenka.txt b/piosenka.txt
+index c1d364c..13ba945 100644
+--- a/piosenka.txt
++++ b/piosenka.txt
+@@ -15,12 +15,12 @@ Fill the starlit sky
+
+
+ Refren-1
+- Get flames the longship burst get flames!
++into flame the longship burst into flames!
+ ack smoke is rising high
+ To the eternal night
+
+ Refren-2
+- Get flames the whole world burst   get flames!
++ into flames the whole world burst    into flames!
+ Nothing will be the same
+ Things will forever change
+
+
+commit 2c0791ebcb586ffe108367deb728453161de7b79
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:28:03 2025 +0200
 :
+commit 7d9b03b3be8cd3f2cb6ff42474b29dbb303fd484
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:46:43 2025 +0200
+
+    porawa bledu piosenka.txt
+
+diff --git a/piosenka.txt b/piosenka.txt
+index c1d364c..13ba945 100644
+--- a/piosenka.txt
++++ b/piosenka.txt
+@@ -15,12 +15,12 @@ Fill the starlit sky
+
+
+ Refren-1
+- Get flames the longship burst get flames!
++into flame the longship burst into flames!
+ ack smoke is rising high
+ To the eternal night
+
+ Refren-2
+- Get flames the whole world burst   get flames!
++ into flames the whole world burst    into flames!
+ Nothing will be the same
+ Things will forever change
+
+
+commit 2c0791ebcb586ffe108367deb728453161de7b79
+Author: Michał Noculak <you@example.com>
+Date:   Tue Aug 19 18:28:03 2025 +0200
 :
